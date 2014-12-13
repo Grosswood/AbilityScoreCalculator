@@ -81,7 +81,7 @@ namespace WindowsFormsApplication1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (str.value < 15)
+            if ((str.value < 13 & pointsLeft > 0) || ( str.value < 15 & pointsLeft > 1))
             {
                 str.increase();
                 pointsLeft--;
@@ -109,7 +109,7 @@ namespace WindowsFormsApplication1
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if (agi.value < 15)
+            if ((agi.value < 13 & pointsLeft > 0) || (agi.value < 15 & pointsLeft > 1))
             {
                 agi.increase();
                 pointsLeft--;
@@ -137,7 +137,7 @@ namespace WindowsFormsApplication1
 
         private void button5_Click(object sender, EventArgs e)
         {
-            if (con.value < 15)
+            if ((con.value < 13 & pointsLeft > 0) || (con.value < 15 & pointsLeft > 1))
             {
                 con.increase();
                 pointsLeft--;
@@ -165,7 +165,7 @@ namespace WindowsFormsApplication1
 
         private void button7_Click(object sender, EventArgs e)
         {
-            if (intel.value < 15)
+            if ((intel.value < 13 & pointsLeft > 0) || (intel.value < 15 & pointsLeft > 1))
             {
                 intel.increase();
                 pointsLeft--;
@@ -193,7 +193,7 @@ namespace WindowsFormsApplication1
 
         private void button9_Click(object sender, EventArgs e)
         {
-            if (wis.value < 15)
+            if ((wis.value < 13 & pointsLeft > 0) || (wis.value < 15 & pointsLeft > 1))
             {
                 wis.increase();
                 pointsLeft--;
@@ -221,7 +221,7 @@ namespace WindowsFormsApplication1
 
         private void button11_Click(object sender, EventArgs e)
         {
-            if (cha.value < 15)
+            if ((cha.value < 13 & pointsLeft > 0) || (cha.value < 15 & pointsLeft > 1))
             {
                 cha.increase();
                 pointsLeft--;
