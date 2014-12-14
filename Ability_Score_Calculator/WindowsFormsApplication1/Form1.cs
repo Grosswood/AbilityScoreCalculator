@@ -247,6 +247,32 @@ namespace WindowsFormsApplication1
             }
         }
 
+        private void button13_Click(object sender, EventArgs e)
+        {
+            str.value = 8;
+            agi.value = 8;
+            con.value = 8;
+            intel.value = 8;
+            wis.value = 8;
+            cha.value = 8;
+
+            str.adjust();
+            agi.adjust();
+            con.adjust();
+            intel.adjust();
+            wis.adjust();
+            cha.adjust();
+
+            pointsLeft = 27;
+
+            printStr();
+            printAgi();
+            printCon();
+            printIntel();
+            printWis();
+            printCha();
+        }
+
     }
     
     

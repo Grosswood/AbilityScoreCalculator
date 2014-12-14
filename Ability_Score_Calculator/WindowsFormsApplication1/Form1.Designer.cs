@@ -71,6 +71,7 @@
             this.label29 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
+            this.button13 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label2
@@ -503,11 +504,23 @@
             this.label31.TabIndex = 55;
             this.label31.Text = "DnD 5 Ability Score calculator";
             // 
+            // button13
+            // 
+            this.button13.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button13.Location = new System.Drawing.Point(28, 278);
+            this.button13.Name = "button13";
+            this.button13.Size = new System.Drawing.Size(55, 25);
+            this.button13.TabIndex = 56;
+            this.button13.Text = "Reset";
+            this.button13.UseVisualStyleBackColor = true;
+            this.button13.Click += new System.EventHandler(this.button13_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(255, 326);
+            this.ClientSize = new System.Drawing.Size(262, 330);
+            this.Controls.Add(this.button13);
             this.Controls.Add(this.label31);
             this.Controls.Add(this.label30);
             this.Controls.Add(this.label29);
@@ -552,7 +565,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "AS Calculator";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -603,6 +616,7 @@
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.Button button13;
     }
 }
 
