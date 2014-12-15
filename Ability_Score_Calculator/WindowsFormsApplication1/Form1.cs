@@ -15,12 +15,12 @@ namespace WindowsFormsApplication1
     {
         public int pointsLeft = 27;
         public string raceFolderPath = Path.Combine(System.IO.Directory.GetCurrentDirectory(), "Races");
-        attribute str = new attribute();
-        attribute agi = new attribute();
-        attribute con = new attribute();
-        attribute intel = new attribute();
-        attribute wis = new attribute();
-        attribute cha = new attribute();
+        ability str = new ability();
+        ability agi = new ability();
+        ability con = new ability();
+        ability intel = new ability();
+        ability wis = new ability();
+        ability cha = new ability();
 
         public void printStr()
         {
@@ -70,15 +70,52 @@ namespace WindowsFormsApplication1
             this.label1.Text = pointsLeft.ToString();
         }
 
+        public void hideRaces()
+        {
+            this.button14.Visible = false;
+            this.button15.Visible = false;
+            this.button16.Visible = false;
+            this.button17.Visible = false;
+            this.button18.Visible = false;
+            this.button19.Visible = false;
+            this.button20.Visible = false;
+            this.button21.Visible = false;
+            this.button22.Visible = false;
+            this.button23.Visible = false;
+        }
+
+        public void ifPointsLeftIsZero()
+        {
+            if (pointsLeft == 0)
+            {
+                //this.pictureBox1.Visible = true;
+                this.button14.Visible = true;
+                //put it in each increase button
+            }
+        }
+
+        public void ifPointsLeftIsNotZero()
+        {
+            if (pointsLeft != 0)
+            {
+                //this.pictureBox1.Visible = true;
+                this.button14.Visible = false;
+                //put it in each increase button
+            }
+        }
+
+
         public Form1()
         {
             InitializeComponent();
+            this.pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
             printStr();
             printAgi();
             printCon();
             printIntel();
             printWis();
             printCha();
+            hideRaces();
             //pictureBox1.Image = Image.FromFile(xPath);
             //public static string oPath = Path.Combine(System.IO.Directory.GetCurrentDirectory(), "O.png");
         }
@@ -94,6 +131,7 @@ namespace WindowsFormsApplication1
                     pointsLeft--;
                 }
                 printStr();
+                ifPointsLeftIsZero();
             }
         }
 
@@ -108,6 +146,7 @@ namespace WindowsFormsApplication1
                     pointsLeft++;
                 }
                 printStr();
+                ifPointsLeftIsNotZero();
             }
         }
 
@@ -122,6 +161,7 @@ namespace WindowsFormsApplication1
                     pointsLeft--;
                 }
                 printAgi();
+                ifPointsLeftIsZero();
             }
         }
         
@@ -136,6 +176,7 @@ namespace WindowsFormsApplication1
                     pointsLeft++;
                 }
                 printAgi();
+                ifPointsLeftIsNotZero();
             }
         }
 
@@ -150,6 +191,7 @@ namespace WindowsFormsApplication1
                     pointsLeft--;
                 }
                 printCon();
+                ifPointsLeftIsZero();
             }
         }
 
@@ -164,6 +206,7 @@ namespace WindowsFormsApplication1
                     pointsLeft++;
                 }
                 printCon();
+                ifPointsLeftIsNotZero();
             }
         }
 
@@ -178,6 +221,7 @@ namespace WindowsFormsApplication1
                     pointsLeft--;
                 }
                 printIntel();
+                ifPointsLeftIsZero();
             }
         }
 
@@ -192,6 +236,7 @@ namespace WindowsFormsApplication1
                     pointsLeft++;
                 }
                 printIntel();
+                ifPointsLeftIsNotZero();
             }
         }
 
@@ -206,6 +251,7 @@ namespace WindowsFormsApplication1
                     pointsLeft--;
                 }
                 printWis();
+                ifPointsLeftIsZero();
             }
         }
 
@@ -220,6 +266,7 @@ namespace WindowsFormsApplication1
                     pointsLeft++;
                 }
                 printWis();
+                ifPointsLeftIsNotZero();
             }
         }
 
@@ -234,6 +281,7 @@ namespace WindowsFormsApplication1
                     pointsLeft--;
                 }
                 printCha();
+                ifPointsLeftIsZero();
             }
         }
 
@@ -248,6 +296,7 @@ namespace WindowsFormsApplication1
                     pointsLeft++;
                 }
                 printCha();
+                ifPointsLeftIsNotZero();
             }
         }
 
@@ -268,6 +317,8 @@ namespace WindowsFormsApplication1
             cha.adjust();
 
             pointsLeft = 27;
+            this.pictureBox1.Visible = false;
+            hideRaces();
 
             printStr();
             printAgi();
@@ -275,73 +326,114 @@ namespace WindowsFormsApplication1
             printIntel();
             printWis();
             printCha();
+
+            this.button1.Visible = true;
+            this.button2.Visible = true;
+            this.button3.Visible = true;
+            this.button4.Visible = true;
+            this.button5.Visible = true;
+            this.button6.Visible = true;
+            this.button7.Visible = true;
+            this.button8.Visible = true;
+            this.button9.Visible = true;
+            this.button10.Visible = true;
+            this.button11.Visible = true;
+            this.button12.Visible = true;
         }
 
         private void button14_Click(object sender, EventArgs e)
         {
-            //when points left = 0 open un way to apply race
+            this.button1.Visible = false;
+            this.button2.Visible = false;
+            this.button3.Visible = false;
+            this.button4.Visible = false;
+            this.button5.Visible = false;
+            this.button6.Visible = false;
+            this.button7.Visible = false;
+            this.button8.Visible = false;
+            this.button9.Visible = false;
+            this.button10.Visible = false;
+            this.button11.Visible = false;
+            this.button12.Visible = false;
+            
+            this.button15.Visible = true;
+            this.button16.Visible = true;
+            this.button17.Visible = true;
+            this.button18.Visible = true;
+            this.button19.Visible = true;
+            this.button20.Visible = true;
+            this.button21.Visible = true;
+            this.button22.Visible = true;
+            this.button23.Visible = true;
         }
 
         private void button15_Click(object sender, EventArgs e)
         {
             pictureBox1.Image = WindowsFormsApplication1.Properties.Resources.Dragonborn;
+            this.pictureBox1.Visible = true;
             //pictureBox1.Image = Image.FromFile(Path.Combine(raceFolderPath, "Dragonborn.png"));
         }
 
         private void button16_Click(object sender, EventArgs e)
         {
             pictureBox1.Image = WindowsFormsApplication1.Properties.Resources.Dwarf;
+            this.pictureBox1.Visible = true;
             //pictureBox1.Image = Image.FromFile(Path.Combine(raceFolderPath, "Dwarf.png"));
         }
 
         private void button17_Click(object sender, EventArgs e)
         {
             pictureBox1.Image = WindowsFormsApplication1.Properties.Resources.Elf;
+            this.pictureBox1.Visible = true;
             //pictureBox1.Image = Image.FromFile(Path.Combine(raceFolderPath, "Elf.png"));
         }
 
         private void button18_Click(object sender, EventArgs e)
         {
             pictureBox1.Image = WindowsFormsApplication1.Properties.Resources.Gnome;
+            this.pictureBox1.Visible = true;
             //pictureBox1.Image = Image.FromFile(Path.Combine(raceFolderPath, "Gnome.png"));
         }
 
         private void button19_Click(object sender, EventArgs e)
         {
             pictureBox1.Image = WindowsFormsApplication1.Properties.Resources.Half_elf;
+            this.pictureBox1.Visible = true;
             //pictureBox1.Image = Image.FromFile(Path.Combine(raceFolderPath, "Half_elf.png"));
         }
 
         private void button20_Click(object sender, EventArgs e)
         {
             pictureBox1.Image = WindowsFormsApplication1.Properties.Resources.Half_orc;
+            this.pictureBox1.Visible = true;
             //pictureBox1.Image = Image.FromFile(Path.Combine(raceFolderPath, "Half_orc.png"));
         }
 
         private void button21_Click(object sender, EventArgs e)
         {
             pictureBox1.Image = WindowsFormsApplication1.Properties.Resources.Halfling;
+            this.pictureBox1.Visible = true;
             //pictureBox1.Image = Image.FromFile(Path.Combine(raceFolderPath, "Halfling.png"));
         }
 
         private void button22_Click(object sender, EventArgs e)
         {
             pictureBox1.Image = WindowsFormsApplication1.Properties.Resources.Human;
+            this.pictureBox1.Visible = true;
             //pictureBox1.Image = Image.FromFile(Path.Combine(raceFolderPath, "Human.png"));
         }
 
         private void button23_Click(object sender, EventArgs e)
         {
             pictureBox1.Image = WindowsFormsApplication1.Properties.Resources.Tiefling;
+            this.pictureBox1.Visible = true;
             //pictureBox1.Image = Image.FromFile(Path.Combine(raceFolderPath, "Tiefling.png"));
         }
-
-
 
     }
     
     
-    class attribute
+    class ability
     {
         public int value = 8;
         public int modifier = -1;
