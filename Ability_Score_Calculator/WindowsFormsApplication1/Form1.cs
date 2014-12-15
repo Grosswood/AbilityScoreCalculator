@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -13,6 +14,7 @@ namespace WindowsFormsApplication1
     public partial class Form1 : Form
     {
         public int pointsLeft = 27;
+        public string raceFolderPath = Path.Combine(System.IO.Directory.GetCurrentDirectory(), "Races");
         attribute str = new attribute();
         attribute agi = new attribute();
         attribute con = new attribute();
@@ -77,6 +79,8 @@ namespace WindowsFormsApplication1
             printIntel();
             printWis();
             printCha();
+            //pictureBox1.Image = Image.FromFile(xPath);
+            //public static string oPath = Path.Combine(System.IO.Directory.GetCurrentDirectory(), "O.png");
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -272,6 +276,67 @@ namespace WindowsFormsApplication1
             printWis();
             printCha();
         }
+
+        private void button14_Click(object sender, EventArgs e)
+        {
+            //when points left = 0 open un way to apply race
+        }
+
+        private void button15_Click(object sender, EventArgs e)
+        {
+            pictureBox1.Image = WindowsFormsApplication1.Properties.Resources.Dragonborn;
+            //pictureBox1.Image = Image.FromFile(Path.Combine(raceFolderPath, "Dragonborn.png"));
+        }
+
+        private void button16_Click(object sender, EventArgs e)
+        {
+            pictureBox1.Image = WindowsFormsApplication1.Properties.Resources.Dwarf;
+            //pictureBox1.Image = Image.FromFile(Path.Combine(raceFolderPath, "Dwarf.png"));
+        }
+
+        private void button17_Click(object sender, EventArgs e)
+        {
+            pictureBox1.Image = WindowsFormsApplication1.Properties.Resources.Elf;
+            //pictureBox1.Image = Image.FromFile(Path.Combine(raceFolderPath, "Elf.png"));
+        }
+
+        private void button18_Click(object sender, EventArgs e)
+        {
+            pictureBox1.Image = WindowsFormsApplication1.Properties.Resources.Gnome;
+            //pictureBox1.Image = Image.FromFile(Path.Combine(raceFolderPath, "Gnome.png"));
+        }
+
+        private void button19_Click(object sender, EventArgs e)
+        {
+            pictureBox1.Image = WindowsFormsApplication1.Properties.Resources.Half_elf;
+            //pictureBox1.Image = Image.FromFile(Path.Combine(raceFolderPath, "Half_elf.png"));
+        }
+
+        private void button20_Click(object sender, EventArgs e)
+        {
+            pictureBox1.Image = WindowsFormsApplication1.Properties.Resources.Half_orc;
+            //pictureBox1.Image = Image.FromFile(Path.Combine(raceFolderPath, "Half_orc.png"));
+        }
+
+        private void button21_Click(object sender, EventArgs e)
+        {
+            pictureBox1.Image = WindowsFormsApplication1.Properties.Resources.Halfling;
+            //pictureBox1.Image = Image.FromFile(Path.Combine(raceFolderPath, "Halfling.png"));
+        }
+
+        private void button22_Click(object sender, EventArgs e)
+        {
+            pictureBox1.Image = WindowsFormsApplication1.Properties.Resources.Human;
+            //pictureBox1.Image = Image.FromFile(Path.Combine(raceFolderPath, "Human.png"));
+        }
+
+        private void button23_Click(object sender, EventArgs e)
+        {
+            pictureBox1.Image = WindowsFormsApplication1.Properties.Resources.Tiefling;
+            //pictureBox1.Image = Image.FromFile(Path.Combine(raceFolderPath, "Tiefling.png"));
+        }
+
+
 
     }
     

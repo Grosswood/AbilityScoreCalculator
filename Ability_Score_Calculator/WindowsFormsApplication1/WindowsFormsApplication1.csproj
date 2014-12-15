@@ -63,6 +63,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -76,6 +77,33 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Races\Dragonborn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Races\Dwarf.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Races\Elf.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Races\Gnome.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Races\Half_elf.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Races\Half_orc.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Races\Halfling.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Races\Human.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Races\Tiefling.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
