@@ -88,6 +88,25 @@ namespace WindowsFormsApplication1
             this.button26.Visible = false;
             this.button27.Visible = false;
             this.button28.Visible = false;
+            this.button29.Visible = false;
+            this.button30.Visible = false;
+        }
+
+        public void reWriteStats()
+        {
+            str.adjust();
+            agi.adjust();
+            con.adjust();
+            intel.adjust();
+            wis.adjust();
+            cha.adjust();
+
+            printStr();
+            printAgi();
+            printCon();
+            printIntel();
+            printWis();
+            printCha();
         }
 
         public void ifPointsLeftIsZero()
@@ -110,17 +129,11 @@ namespace WindowsFormsApplication1
             }
         }
 
-
         public Form1()
         {
             InitializeComponent();
             this.pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
-            printStr();
-            printAgi();
-            printCon();
-            printIntel();
-            printWis();
-            printCha();
+            reWriteStats();
             hideRaces();
             //pictureBox1.Image = Image.FromFile(xPath);
             //public static string oPath = Path.Combine(System.IO.Directory.GetCurrentDirectory(), "O.png");
@@ -315,23 +328,10 @@ namespace WindowsFormsApplication1
             wis.value = 8;
             cha.value = 8;
 
-            str.adjust();
-            agi.adjust();
-            con.adjust();
-            intel.adjust();
-            wis.adjust();
-            cha.adjust();
-
             pointsLeft = 27;
             this.pictureBox1.Visible = false;
             hideRaces();
-
-            printStr();
-            printAgi();
-            printCon();
-            printIntel();
-            printWis();
-            printCha();
+            reWriteStats();
 
             this.button1.Visible = true;
             this.button2.Visible = true;
@@ -378,12 +378,28 @@ namespace WindowsFormsApplication1
             this.button21.Visible = true;
             this.button22.Visible = true;
             this.button23.Visible = true;
+            this.button24.Visible = true;
+            this.button25.Visible = true;
+            this.button26.Visible = true;
+            this.button27.Visible = true;
+            this.button28.Visible = true;
+            this.button29.Visible = true;
         }
 
         private void button15_Click(object sender, EventArgs e)
         {
-            pictureBox1.Image = WindowsFormsApplication1.Properties.Resources.Dragonborn;
+            pictureBox1.Image = WindowsFormsApplication1.Properties.Resources.Dwarf;
             this.pictureBox1.Visible = true;
+            this.button30.Visible = true;
+
+            str.value = str.valueNoRace + 2;
+            agi.value = agi.valueNoRace;
+            con.value = con.valueNoRace + 2;
+            intel.value = intel.valueNoRace;
+            wis.value = wis.valueNoRace;
+            cha.value = cha.valueNoRace;
+
+            reWriteStats();
             //pictureBox1.Image = Image.FromFile(Path.Combine(raceFolderPath, "Dragonborn.png"));
         }
 
@@ -391,34 +407,199 @@ namespace WindowsFormsApplication1
         {
             pictureBox1.Image = WindowsFormsApplication1.Properties.Resources.Dwarf;
             this.pictureBox1.Visible = true;
-            //pictureBox1.Image = Image.FromFile(Path.Combine(raceFolderPath, "Dwarf.png"));
+            this.button30.Visible = true;
+
+            str.value = str.valueNoRace;
+            agi.value = agi.valueNoRace;
+            con.value = con.valueNoRace + 2;
+            intel.value = intel.valueNoRace;
+            wis.value = wis.valueNoRace + 1;
+            cha.value = cha.valueNoRace;
+
+            reWriteStats();
         }
 
         private void button17_Click(object sender, EventArgs e)
         {
             pictureBox1.Image = WindowsFormsApplication1.Properties.Resources.Elf;
             this.pictureBox1.Visible = true;
-            //pictureBox1.Image = Image.FromFile(Path.Combine(raceFolderPath, "Elf.png"));
+            this.button30.Visible = true;
+
+            str.value = str.valueNoRace;
+            agi.value = agi.valueNoRace + 2;
+            con.value = con.valueNoRace;
+            intel.value = intel.valueNoRace + 1;
+            wis.value = wis.valueNoRace;
+            cha.value = cha.valueNoRace;
+
+            reWriteStats();
         }
 
         private void button18_Click(object sender, EventArgs e)
         {
-            pictureBox1.Image = WindowsFormsApplication1.Properties.Resources.Gnome;
+            pictureBox1.Image = WindowsFormsApplication1.Properties.Resources.Elf;
             this.pictureBox1.Visible = true;
-            //pictureBox1.Image = Image.FromFile(Path.Combine(raceFolderPath, "Gnome.png"));
+            this.button30.Visible = true;
+
+            str.value = str.valueNoRace;
+            agi.value = agi.valueNoRace + 2;
+            con.value = con.valueNoRace;
+            intel.value = intel.valueNoRace;
+            wis.value = wis.valueNoRace + 1;
+            cha.value = cha.valueNoRace;
+
+            reWriteStats();
         }
 
         private void button19_Click(object sender, EventArgs e)
         {
-            pictureBox1.Image = WindowsFormsApplication1.Properties.Resources.Half_elf;
+            pictureBox1.Image = WindowsFormsApplication1.Properties.Resources.Elf;
             this.pictureBox1.Visible = true;
-            //pictureBox1.Image = Image.FromFile(Path.Combine(raceFolderPath, "Half_elf.png"));
+            this.button30.Visible = true;
+
+            str.value = str.valueNoRace;
+            agi.value = agi.valueNoRace + 2;
+            con.value = con.valueNoRace;
+            intel.value = intel.valueNoRace;
+            wis.value = wis.valueNoRace;
+            cha.value = cha.valueNoRace + 1;
+
+            reWriteStats();
         }
 
         private void button20_Click(object sender, EventArgs e)
         {
+            pictureBox1.Image = WindowsFormsApplication1.Properties.Resources.Halfling;
+            this.pictureBox1.Visible = true;
+            this.button30.Visible = true;
+
+            str.value = str.valueNoRace;
+            agi.value = agi.valueNoRace + 2;
+            con.value = con.valueNoRace;
+            intel.value = intel.valueNoRace;
+            wis.value = wis.valueNoRace;
+            cha.value = cha.valueNoRace + 1;
+
+            reWriteStats();
+        }
+
+        private void button21_Click(object sender, EventArgs e)
+        {
+            pictureBox1.Image = WindowsFormsApplication1.Properties.Resources.Halfling;
+            this.pictureBox1.Visible = true;
+            this.button30.Visible = true;
+
+            str.value = str.valueNoRace;
+            agi.value = agi.valueNoRace + 2;
+            con.value = con.valueNoRace + 1;
+            intel.value = intel.valueNoRace;
+            wis.value = wis.valueNoRace;
+            cha.value = cha.valueNoRace;
+
+            reWriteStats();
+        }
+
+        private void button22_Click(object sender, EventArgs e)
+        {
+            pictureBox1.Image = WindowsFormsApplication1.Properties.Resources.Human;
+            this.pictureBox1.Visible = true;
+            this.button30.Visible = true;
+
+            str.value = str.valueNoRace + 1;
+            agi.value = agi.valueNoRace + 1;
+            con.value = con.valueNoRace + 1;
+            intel.value = intel.valueNoRace + 1;
+            wis.value = wis.valueNoRace + 1;
+            cha.value = cha.valueNoRace + 1;
+
+            reWriteStats();
+        }
+
+        private void button23_Click(object sender, EventArgs e)
+        {
+            pictureBox1.Image = WindowsFormsApplication1.Properties.Resources.Human;
+            this.pictureBox1.Visible = true;
+            this.button30.Visible = true;
+
+            str.value = str.valueNoRace;
+            agi.value = agi.valueNoRace;
+            con.value = con.valueNoRace;
+            intel.value = intel.valueNoRace;
+            wis.value = wis.valueNoRace;
+            cha.value = cha.valueNoRace;
+
+            reWriteStats();
+        }
+
+        private void button24_Click(object sender, EventArgs e)
+        {
+            pictureBox1.Image = WindowsFormsApplication1.Properties.Resources.Dragonborn;
+            this.pictureBox1.Visible = true;
+            this.button30.Visible = true;
+
+            str.value = str.valueNoRace + 2;
+            agi.value = agi.valueNoRace;
+            con.value = con.valueNoRace;
+            intel.value = intel.valueNoRace;
+            wis.value = wis.valueNoRace;
+            cha.value = cha.valueNoRace + 1;
+
+            reWriteStats();
+        }
+
+        private void button25_Click(object sender, EventArgs e)
+        {
+            pictureBox1.Image = WindowsFormsApplication1.Properties.Resources.Gnome;
+            this.pictureBox1.Visible = true;
+            this.button30.Visible = true;
+
+            str.value = str.valueNoRace;
+            agi.value = agi.valueNoRace + 1;
+            con.value = con.valueNoRace;
+            intel.value = intel.valueNoRace + 2;
+            wis.value = wis.valueNoRace;
+            cha.value = cha.valueNoRace;
+
+            reWriteStats();
+        }
+
+        private void button26_Click(object sender, EventArgs e)
+        {
+            pictureBox1.Image = WindowsFormsApplication1.Properties.Resources.Gnome;
+            this.pictureBox1.Visible = true;
+            this.button30.Visible = true;
+
+            str.value = str.valueNoRace;
+            agi.value = agi.valueNoRace;
+            con.value = con.valueNoRace + 1;
+            intel.value = intel.valueNoRace + 2;
+            wis.value = wis.valueNoRace;
+            cha.value = cha.valueNoRace;
+
+            reWriteStats();
+        }
+
+        private void button27_Click(object sender, EventArgs e)
+        {
+            pictureBox1.Image = WindowsFormsApplication1.Properties.Resources.Half_elf;
+            this.pictureBox1.Visible = true;
+            this.button30.Visible = true;
+
+            str.value = str.valueNoRace;
+            agi.value = agi.valueNoRace;
+            con.value = con.valueNoRace;
+            intel.value = intel.valueNoRace;
+            wis.value = wis.valueNoRace;
+            cha.value = cha.valueNoRace + 2;
+
+            reWriteStats();
+        }
+
+        private void button28_Click(object sender, EventArgs e)
+        {
             pictureBox1.Image = WindowsFormsApplication1.Properties.Resources.Half_orc;
             this.pictureBox1.Visible = true;
+            this.button30.Visible = true;
 
             str.value = str.valueNoRace + 2;
             agi.value = agi.valueNoRace;
@@ -427,41 +608,14 @@ namespace WindowsFormsApplication1
             wis.value = wis.valueNoRace;
             cha.value = cha.valueNoRace;
 
-            str.adjust();
-            agi.adjust();
-            con.adjust();
-            intel.adjust();
-            wis.adjust();
-            cha.adjust();
-
-            printStr();
-            printAgi();
-            printCon();
-            printIntel();
-            printWis();
-            printCha();
-
-            //pictureBox1.Image = Image.FromFile(Path.Combine(raceFolderPath, "Half_orc.png"));
+            reWriteStats();
         }
 
-        private void button21_Click(object sender, EventArgs e)
-        {
-            pictureBox1.Image = WindowsFormsApplication1.Properties.Resources.Halfling;
-            this.pictureBox1.Visible = true;
-            //pictureBox1.Image = Image.FromFile(Path.Combine(raceFolderPath, "Halfling.png"));
-        }
-
-        private void button22_Click(object sender, EventArgs e)
-        {
-            pictureBox1.Image = WindowsFormsApplication1.Properties.Resources.Human;
-            this.pictureBox1.Visible = true;
-            //pictureBox1.Image = Image.FromFile(Path.Combine(raceFolderPath, "Human.png"));
-        }
-
-        private void button23_Click(object sender, EventArgs e)
+        private void button29_Click(object sender, EventArgs e)
         {
             pictureBox1.Image = WindowsFormsApplication1.Properties.Resources.Tiefling;
             this.pictureBox1.Visible = true;
+            this.button30.Visible = true;
 
             str.value = str.valueNoRace;
             agi.value = agi.valueNoRace;
@@ -469,22 +623,23 @@ namespace WindowsFormsApplication1
             intel.value = intel.valueNoRace + 1;
             wis.value = wis.valueNoRace;
             cha.value = cha.valueNoRace + 2;
+            
+            reWriteStats();
+        }
 
-            str.adjust();
-            agi.adjust();
-            con.adjust();
-            intel.adjust();
-            wis.adjust();
-            cha.adjust();
+        private void button30_Click(object sender, EventArgs e)
+        {
+            str.value = str.valueNoRace;
+            agi.value = agi.valueNoRace;
+            con.value = con.valueNoRace;
+            intel.value = intel.valueNoRace;
+            wis.value = wis.valueNoRace;
+            cha.value = cha.valueNoRace;
 
-            printStr();
-            printAgi();
-            printCon();
-            printIntel();
-            printWis();
-            printCha();
+            reWriteStats();
 
-            //pictureBox1.Image = Image.FromFile(Path.Combine(raceFolderPath, "Tiefling.png"));
+            this.pictureBox1.Visible = false;
+            this.button30.Visible = false;
         }
 
     }
