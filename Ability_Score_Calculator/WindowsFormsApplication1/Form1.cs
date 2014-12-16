@@ -82,6 +82,12 @@ namespace WindowsFormsApplication1
             this.button21.Visible = false;
             this.button22.Visible = false;
             this.button23.Visible = false;
+
+            this.button24.Visible = false;
+            this.button25.Visible = false;
+            this.button26.Visible = false;
+            this.button27.Visible = false;
+            this.button28.Visible = false;
         }
 
         public void ifPointsLeftIsZero()
@@ -355,7 +361,14 @@ namespace WindowsFormsApplication1
             this.button10.Visible = false;
             this.button11.Visible = false;
             this.button12.Visible = false;
-            
+
+            str.valueNoRace = str.value;
+            agi.valueNoRace = agi.value;
+            con.valueNoRace = con.value;
+            intel.valueNoRace = intel.value;
+            wis.valueNoRace = wis.value;
+            cha.valueNoRace = cha.value;
+
             this.button15.Visible = true;
             this.button16.Visible = true;
             this.button17.Visible = true;
@@ -406,6 +419,28 @@ namespace WindowsFormsApplication1
         {
             pictureBox1.Image = WindowsFormsApplication1.Properties.Resources.Half_orc;
             this.pictureBox1.Visible = true;
+
+            str.value = str.valueNoRace + 2;
+            agi.value = agi.valueNoRace;
+            con.value = con.valueNoRace + 1;
+            intel.value = intel.valueNoRace;
+            wis.value = wis.valueNoRace;
+            cha.value = cha.valueNoRace;
+
+            str.adjust();
+            agi.adjust();
+            con.adjust();
+            intel.adjust();
+            wis.adjust();
+            cha.adjust();
+
+            printStr();
+            printAgi();
+            printCon();
+            printIntel();
+            printWis();
+            printCha();
+
             //pictureBox1.Image = Image.FromFile(Path.Combine(raceFolderPath, "Half_orc.png"));
         }
 
@@ -427,6 +462,28 @@ namespace WindowsFormsApplication1
         {
             pictureBox1.Image = WindowsFormsApplication1.Properties.Resources.Tiefling;
             this.pictureBox1.Visible = true;
+
+            str.value = str.valueNoRace;
+            agi.value = agi.valueNoRace;
+            con.value = con.valueNoRace;
+            intel.value = intel.valueNoRace + 1;
+            wis.value = wis.valueNoRace;
+            cha.value = cha.valueNoRace + 2;
+
+            str.adjust();
+            agi.adjust();
+            con.adjust();
+            intel.adjust();
+            wis.adjust();
+            cha.adjust();
+
+            printStr();
+            printAgi();
+            printCon();
+            printIntel();
+            printWis();
+            printCha();
+
             //pictureBox1.Image = Image.FromFile(Path.Combine(raceFolderPath, "Tiefling.png"));
         }
 
@@ -436,6 +493,7 @@ namespace WindowsFormsApplication1
     class ability
     {
         public int value = 8;
+        public int valueNoRace = 0;
         public int modifier = -1;
         public int cost = 1;
         public void adjust()
