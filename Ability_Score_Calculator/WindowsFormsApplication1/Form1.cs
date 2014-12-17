@@ -13,15 +13,16 @@ namespace WindowsFormsApplication1
 {
     public partial class Form1 : Form
     {
-        public int pointsLeft = 27;
-        public string raceFolderPath = Path.Combine(System.IO.Directory.GetCurrentDirectory(), "Races");
+        public int pointsLeft = 27; //points can be spent on increasing abilities
+        public int additionalPoints = 0; // those are needed for alt. human and half-elf customization
+        //public string raceFolderPath = Path.Combine(System.IO.Directory.GetCurrentDirectory(), "Races"); //that is an old route, saved just in case
         ability str = new ability();
         ability agi = new ability();
         ability con = new ability();
         ability intel = new ability();
         ability wis = new ability();
         ability cha = new ability();
-
+        //printAbility is kind of function for display ability and change related to it variables
         public void printStr()
         {
             this.label3.Text = str.value.ToString();
@@ -69,10 +70,11 @@ namespace WindowsFormsApplication1
             this.label24.Text = cha.cost.ToString();
             this.label1.Text = pointsLeft.ToString();
         }
-
+        //in few cases buttons related to the race addition is needed to be closed by that function
         public void hideRaces()
         {
             this.button14.Visible = false;
+
             this.button15.Visible = false;
             this.button16.Visible = false;
             this.button17.Visible = false;
@@ -82,7 +84,6 @@ namespace WindowsFormsApplication1
             this.button21.Visible = false;
             this.button22.Visible = false;
             this.button23.Visible = false;
-
             this.button24.Visible = false;
             this.button25.Visible = false;
             this.button26.Visible = false;
@@ -90,8 +91,15 @@ namespace WindowsFormsApplication1
             this.button28.Visible = false;
             this.button29.Visible = false;
             this.button30.Visible = false;
-        }
 
+            this.button31.Visible = false;
+            this.button32.Visible = false;
+            this.button33.Visible = false;
+            this.button34.Visible = false;
+            this.button35.Visible = false;
+            this.button36.Visible = false;
+        }
+        //if one or more abilities are changed, this function rewrite all related buttons
         public void reWriteStats()
         {
             str.adjust();
@@ -108,7 +116,17 @@ namespace WindowsFormsApplication1
             printWis();
             printCha();
         }
-
+        //Additiononal buttons are needed for alt. human and half-elf customization and hidden when seitching to another race
+        public void hideAditionalCustomizationButton()
+        {
+            this.button31.Visible = false;
+            this.button32.Visible = false;
+            this.button33.Visible = false;
+            this.button34.Visible = false;
+            this.button35.Visible = false;
+            this.button36.Visible = false;
+        }
+        //this functions allow to finish spending points on abilities and lock them and also summon choose race button
         public void ifPointsLeftIsZero()
         {
             if (pointsLeft == 0)
@@ -118,7 +136,7 @@ namespace WindowsFormsApplication1
                 //put it in each increase button
             }
         }
-
+        //abilities can be locked before race choosing and only after ALL points spent
         public void ifPointsLeftIsNotZero()
         {
             if (pointsLeft != 0)
@@ -138,7 +156,7 @@ namespace WindowsFormsApplication1
             //pictureBox1.Image = Image.FromFile(xPath);
             //public static string oPath = Path.Combine(System.IO.Directory.GetCurrentDirectory(), "O.png");
         }
-
+        //buttons 1,3,5,7,9,11 is for increase ability ('+'), buttons 2,4,6,8,10,12 is to decrease ('-')
         private void button1_Click(object sender, EventArgs e)
         {
             if ((str.value < 13 & pointsLeft > 0) || ( str.value < 15 & pointsLeft > 1))
@@ -318,7 +336,7 @@ namespace WindowsFormsApplication1
                 ifPointsLeftIsNotZero();
             }
         }
-
+        //reset all button
         private void button13_Click(object sender, EventArgs e)
         {
             str.value = 8;
@@ -346,7 +364,7 @@ namespace WindowsFormsApplication1
             this.button11.Visible = true;
             this.button12.Visible = true;
         }
-
+        //choose race button
         private void button14_Click(object sender, EventArgs e)
         {
             this.button1.Visible = false;
@@ -385,12 +403,14 @@ namespace WindowsFormsApplication1
             this.button28.Visible = true;
             this.button29.Visible = true;
         }
-
+        // buttons 15 - 29 is for races
         private void button15_Click(object sender, EventArgs e)
         {
             pictureBox1.Image = WindowsFormsApplication1.Properties.Resources.Dwarf;
             this.pictureBox1.Visible = true;
+            this.button14.Visible = false;
             this.button30.Visible = true;
+            hideAditionalCustomizationButton();
 
             str.value = str.valueNoRace + 2;
             agi.value = agi.valueNoRace;
@@ -407,7 +427,9 @@ namespace WindowsFormsApplication1
         {
             pictureBox1.Image = WindowsFormsApplication1.Properties.Resources.Dwarf;
             this.pictureBox1.Visible = true;
+            this.button14.Visible = false;
             this.button30.Visible = true;
+            hideAditionalCustomizationButton();
 
             str.value = str.valueNoRace;
             agi.value = agi.valueNoRace;
@@ -423,7 +445,9 @@ namespace WindowsFormsApplication1
         {
             pictureBox1.Image = WindowsFormsApplication1.Properties.Resources.Elf;
             this.pictureBox1.Visible = true;
+            this.button14.Visible = false;
             this.button30.Visible = true;
+            hideAditionalCustomizationButton();
 
             str.value = str.valueNoRace;
             agi.value = agi.valueNoRace + 2;
@@ -439,7 +463,9 @@ namespace WindowsFormsApplication1
         {
             pictureBox1.Image = WindowsFormsApplication1.Properties.Resources.Elf;
             this.pictureBox1.Visible = true;
+            this.button14.Visible = false;
             this.button30.Visible = true;
+            hideAditionalCustomizationButton();
 
             str.value = str.valueNoRace;
             agi.value = agi.valueNoRace + 2;
@@ -455,7 +481,9 @@ namespace WindowsFormsApplication1
         {
             pictureBox1.Image = WindowsFormsApplication1.Properties.Resources.Elf;
             this.pictureBox1.Visible = true;
+            this.button14.Visible = false;
             this.button30.Visible = true;
+            hideAditionalCustomizationButton();
 
             str.value = str.valueNoRace;
             agi.value = agi.valueNoRace + 2;
@@ -471,7 +499,9 @@ namespace WindowsFormsApplication1
         {
             pictureBox1.Image = WindowsFormsApplication1.Properties.Resources.Halfling;
             this.pictureBox1.Visible = true;
+            this.button14.Visible = false;
             this.button30.Visible = true;
+            hideAditionalCustomizationButton();
 
             str.value = str.valueNoRace;
             agi.value = agi.valueNoRace + 2;
@@ -487,7 +517,9 @@ namespace WindowsFormsApplication1
         {
             pictureBox1.Image = WindowsFormsApplication1.Properties.Resources.Halfling;
             this.pictureBox1.Visible = true;
+            this.button14.Visible = false;
             this.button30.Visible = true;
+            hideAditionalCustomizationButton();
 
             str.value = str.valueNoRace;
             agi.value = agi.valueNoRace + 2;
@@ -503,7 +535,9 @@ namespace WindowsFormsApplication1
         {
             pictureBox1.Image = WindowsFormsApplication1.Properties.Resources.Human;
             this.pictureBox1.Visible = true;
+            this.button14.Visible = false;
             this.button30.Visible = true;
+            hideAditionalCustomizationButton();
 
             str.value = str.valueNoRace + 1;
             agi.value = agi.valueNoRace + 1;
@@ -519,7 +553,17 @@ namespace WindowsFormsApplication1
         {
             pictureBox1.Image = WindowsFormsApplication1.Properties.Resources.Human;
             this.pictureBox1.Visible = true;
+            this.button14.Visible = false;
             this.button30.Visible = true;
+            additionalPoints = 2;
+
+            //those button are for human customization
+            this.button31.Visible = true;
+            this.button32.Visible = true;
+            this.button33.Visible = true;
+            this.button34.Visible = true;
+            this.button35.Visible = true;
+            this.button36.Visible = true;
 
             str.value = str.valueNoRace;
             agi.value = agi.valueNoRace;
@@ -535,7 +579,9 @@ namespace WindowsFormsApplication1
         {
             pictureBox1.Image = WindowsFormsApplication1.Properties.Resources.Dragonborn;
             this.pictureBox1.Visible = true;
+            this.button14.Visible = false;
             this.button30.Visible = true;
+            hideAditionalCustomizationButton();
 
             str.value = str.valueNoRace + 2;
             agi.value = agi.valueNoRace;
@@ -551,7 +597,9 @@ namespace WindowsFormsApplication1
         {
             pictureBox1.Image = WindowsFormsApplication1.Properties.Resources.Gnome;
             this.pictureBox1.Visible = true;
+            this.button14.Visible = false;
             this.button30.Visible = true;
+            hideAditionalCustomizationButton();
 
             str.value = str.valueNoRace;
             agi.value = agi.valueNoRace + 1;
@@ -567,7 +615,9 @@ namespace WindowsFormsApplication1
         {
             pictureBox1.Image = WindowsFormsApplication1.Properties.Resources.Gnome;
             this.pictureBox1.Visible = true;
+            this.button14.Visible = false;
             this.button30.Visible = true;
+            hideAditionalCustomizationButton();
 
             str.value = str.valueNoRace;
             agi.value = agi.valueNoRace;
@@ -583,7 +633,17 @@ namespace WindowsFormsApplication1
         {
             pictureBox1.Image = WindowsFormsApplication1.Properties.Resources.Half_elf;
             this.pictureBox1.Visible = true;
+            this.button14.Visible = false;
             this.button30.Visible = true;
+            additionalPoints = 2;
+
+            //those button are for half-elf customization
+            this.button31.Visible = true;
+            this.button32.Visible = true;
+            this.button33.Visible = true;
+            this.button34.Visible = true;
+            this.button35.Visible = true;
+
 
             str.value = str.valueNoRace;
             agi.value = agi.valueNoRace;
@@ -599,7 +659,9 @@ namespace WindowsFormsApplication1
         {
             pictureBox1.Image = WindowsFormsApplication1.Properties.Resources.Half_orc;
             this.pictureBox1.Visible = true;
+            this.button14.Visible = false;
             this.button30.Visible = true;
+            hideAditionalCustomizationButton();
 
             str.value = str.valueNoRace + 2;
             agi.value = agi.valueNoRace;
@@ -615,7 +677,9 @@ namespace WindowsFormsApplication1
         {
             pictureBox1.Image = WindowsFormsApplication1.Properties.Resources.Tiefling;
             this.pictureBox1.Visible = true;
+            this.button14.Visible = false;
             this.button30.Visible = true;
+            hideAditionalCustomizationButton();
 
             str.value = str.valueNoRace;
             agi.value = agi.valueNoRace;
@@ -626,7 +690,7 @@ namespace WindowsFormsApplication1
             
             reWriteStats();
         }
-
+        //reset races button
         private void button30_Click(object sender, EventArgs e)
         {
             str.value = str.valueNoRace;
@@ -637,9 +701,95 @@ namespace WindowsFormsApplication1
             cha.value = cha.valueNoRace;
 
             reWriteStats();
+            hideRaces();
 
             this.pictureBox1.Visible = false;
-            this.button30.Visible = false;
+            this.button14.Visible = true;
+
+            this.button1.Visible = true;
+            this.button2.Visible = true;
+            this.button3.Visible = true;
+            this.button4.Visible = true;
+            this.button5.Visible = true;
+            this.button6.Visible = true;
+            this.button7.Visible = true;
+            this.button8.Visible = true;
+            this.button9.Visible = true;
+            this.button10.Visible = true;
+            this.button11.Visible = true;
+            this.button12.Visible = true;
+        }
+        //buttons 31-36 is for customizing Half-elf and Alter. Human
+        private void button31_Click(object sender, EventArgs e)
+        {
+            str.increase();
+            printStr();
+            this.button31.Visible = false;
+            additionalPoints--;
+            if (additionalPoints == 0)
+            {
+                hideAditionalCustomizationButton();
+            }
+        }
+
+        private void button32_Click(object sender, EventArgs e)
+        {
+            agi.increase();
+            printAgi();
+            this.button32.Visible = false;
+            additionalPoints--;
+            if (additionalPoints == 0)
+            {
+                hideAditionalCustomizationButton();
+            }
+        }
+
+        private void button33_Click(object sender, EventArgs e)
+        {
+            con.increase();
+            printCon();
+            this.button33.Visible = false;
+            additionalPoints--;
+            if (additionalPoints == 0)
+            {
+                hideAditionalCustomizationButton();
+            }
+        }
+
+        private void button34_Click(object sender, EventArgs e)
+        {
+            intel.increase();
+            printIntel();
+            this.button34.Visible = false;
+            additionalPoints--;
+            if (additionalPoints == 0)
+            {
+                hideAditionalCustomizationButton();
+            }
+        }
+
+        private void button35_Click(object sender, EventArgs e)
+        {
+            wis.increase();
+            printWis();
+            this.button35.Visible = false;
+            additionalPoints--;
+            if (additionalPoints == 0)
+            {
+                hideAditionalCustomizationButton();
+            }
+        }
+
+        private void button36_Click(object sender, EventArgs e)
+        {
+            cha.increase();
+            printCha();
+            this.button36.Visible = false;
+            additionalPoints--;
+            if (additionalPoints == 0)
+            {
+                hideAditionalCustomizationButton();
+            }
         }
 
     }
